@@ -7,10 +7,10 @@ $.getJSON(streamsHtmlHead + "OgamingSC2" + "?callback=?", function (json) {
     }
     if (json.stream === null) {
         $(".foxStatusOne").html("OFFLINE");
-        $(".foxNameOne").html('<a href='+ json._links.channel +'>OgamingSC2</a>');
-    } else {
+        $(".foxNameOne").html('<a href=https://www.twitch.tv/' + 'OgamingSC2' +'>OgamingSC2</a>');
+    } if (json.status !== 404) {
         $(".foxStatusOne").html(JSON.stringify(json.stream.channel.status));
-        $(".foxNameOne").html('<a href='+ json._links.channel +'>OgamingSC2</a>');
+        $(".foxNameOne").html('<a href=https://www.twitch.tv/' + 'OgamingSC2' + '>OgamingSC2</a>');
     }
 });
 
@@ -21,10 +21,11 @@ $.getJSON(streamsHtmlHead + "freecodecamp"+"?callback=?", function (json) {
     }
     if (json.stream === null) {
         $(".foxStatusTwo").html("OFFLINE");
-        $(".foxNameTwo").html('<a href='+ json._links.channel +'>freecodecamp</a>');
-    } else {
+        $(".foxNameTwo").html('<a href=https://www.twitch.tv/' + 'freecodecamp' +'>freecodecamp</a>');
+    }
+    if (json.status !== 404) {
         $(".foxStatusTwo").html(JSON.stringify(json.stream.channel.status));
-        $(".foxNameTwo").html('<a href='+ json._links.channel +'>freecodecamp</a>');
+        $(".foxNameTwo").html('<a href=https://www.twitch.tv/' + 'freecodecamp' +'>freecodecamp</a>');
     }
 });
 
@@ -35,14 +36,73 @@ $.getJSON(streamsHtmlHead + "comster404"+"?callback=?", function (json) {
     }
     if (json.stream === null) {
         $(".foxStatusThree").html("OFFLINE");
-        $(".foxNameThree").html('<a href='+ json._links.channel +'>comster404</a>');
-    } else {
-        //$("#foxNameThree").html("comster404");
+        $(".foxNameThree").html('<a href=https://www.twitch.tv/' + 'comster404' +'>comster404</a>');
+    }
+    if (json.status !== 404) {
         $(".foxStatusThree").html(JSON.stringify(json.stream.channel.status));
-        $(".foxNameThree").html('<a href='+ json._links.channel +'>comster404</a>');
+        $(".foxNameThree").html('<a href=https://www.twitch.tv/' + 'comster404' +'>comster404</a>');
     }
 });
 
+$.getJSON(streamsHtmlHead + "amazhs"+"?callback=?", function (json) {
+    if (json.status === 404) {
+        $(".foxStatusFour").html(JSON.stringify(json.message));
+        $(".foxNameFour").html("amazhs");
+    }
+    if (json.stream === null) {
+        $(".foxStatusFour").html("OFFLINE");
+        $(".foxNameFour").html('<a href=https://www.twitch.tv/' + 'amazhs' +'>amazhs</a>');
+    }
+    if (json.status !== 404) {
+        $(".foxStatusFour").html(JSON.stringify(json.stream.channel.status));
+        $(".foxNameFour").html('<a href=https://www.twitch.tv/' + 'amazhs' +'>amazhs</a>');
+    }
+});
+
+$.getJSON(streamsHtmlHead + "imaqtpie"+"?callback=?", function (json) {
+    if (json.status === 404) {
+        $(".foxStatusFive").html(JSON.stringify(json.message));
+        $(".foxNameFive").html("imaqtpie");
+    }
+    if (json.stream === null) {
+        $(".foxStatusFive").html("OFFLINE");
+        $(".foxNameFive").html('<a href=https://www.twitch.tv/' + 'imaqtpie' +'>imaqtpie</a>');
+    }
+    if (json.status !== 404) {
+        $(".foxStatusFive").html(JSON.stringify(json.stream.channel.status));
+        $(".foxNameFive").html('<a href=https://www.twitch.tv/' + 'imaqtpie' +'>imaqtpie</a>');
+    }
+});
+
+$.getJSON(streamsHtmlHead + "xbox_alive"+"?callback=?", function (json) {
+    if (json.status === 404) {
+        $(".foxStatusSix").html(JSON.stringify(json.message));
+        $(".foxNameSix").html("xbox_alive");
+    }
+    if (json.stream === null) {
+        $(".foxStatusSix").html("OFFLINE");
+        $(".foxNameSix").html('<a href=https://www.twitch.tv/' + 'xbox_alive' +'>xbox_alive</a>');
+    }
+    if (json.status !== 404) {
+        $(".foxStatusSix").html(JSON.stringify(json.stream.channel.status));
+        $(".foxNameSix").html('<a href=https://www.twitch.tv/' + 'xbox_alive' +'>xbox_alive</a>');
+    }
+});
+
+$.getJSON(streamsHtmlHead + "anniefuchsia"+"?callback=?", function (json) {
+    if (json.status === 404) {
+        $(".foxStatusSeven").html(JSON.stringify(json.message));
+        $(".foxNameSeven").html("anniefuchsia");
+    }
+    if (json.stream === null) {
+        $(".foxStatusSeven").html("OFFLINE");
+        $(".foxNameSeven").html('<a href=https://www.twitch.tv/' + 'anniefuchsia' +'>anniefuchsia</a>');
+    }
+    if (json.status !== 404) {
+        $(".foxStatusSeven").html(JSON.stringify(json.stream.channel.status));
+        $(".foxNameSeven").html('<a href=https://www.twitch.tv/' + 'anniefuchsia' +'>anniefuchsia</a>');
+    }
+});
 
 // - Bootstrap Theme Stuff -
 
