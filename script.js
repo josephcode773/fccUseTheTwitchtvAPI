@@ -1,42 +1,30 @@
 var streamsHtmlHead = "https://wind-bow.gomix.me/twitch-api/streams/";
-var channelsHtmlHead = "https://wind-bow.gomix.me/twitch-api/channels/";
-var usersHtmlHead = "https://wind-bow.gomix.me/twitch-api/users/";
-
-// $.getJSON(streamsHtmlHead + "OgamingSC2/?callback=?", function (json) {
 
 $.getJSON(streamsHtmlHead + "OgamingSC2" + "?callback=?", function (json) {
     if (json.status === 404) {
-        $("#foxStatusOne").html(JSON.stringify(json.message));
-        $("#foxNameOne").html("OgamingSC2");
+        $(".foxStatusOne").html(JSON.stringify(json.message));
+        $(".foxNameOne").html("OgamingSC2");
     }
     if (json.stream === null) {
-        $("#foxStatusOne").html("OFFLINE");
-        $("#foxNameOne").html("OgamingSC2");
-        $("#foxLinkOne").html(JSON.stringify(json._links.channel));
+        $(".foxStatusOne").html("OFFLINE");
+        $(".foxNameOne").html('<a href='+ json._links.channel +'>OgamingSC2</a>');
     } else {
         $(".foxStatusOne").html(JSON.stringify(json.stream.channel.status));
-        //$(".foxNameOne").html("OgamingSC2");
         $(".foxNameOne").html('<a href='+ json._links.channel +'>OgamingSC2</a>');
-        $("#foxIconOne").html(JSON.stringify(json.stream.channel.logo));
-        $("#foxLinkOne").html(JSON.stringify(json._links.channel));
     }
-
 });
 
 $.getJSON(streamsHtmlHead + "freecodecamp"+"?callback=?", function (json) {
     if (json.status === 404) {
-        $("#foxStatusTwo").html(JSON.stringify(json.message));
-        $("#foxNameTwo").html("freecodecamp");
+        $(".foxStatusTwo").html(JSON.stringify(json.message));
+        $(".foxNameTwo").html("freecodecamp");
     }
     if (json.stream === null) {
         $(".foxStatusTwo").html("OFFLINE");
         $(".foxNameTwo").html('<a href='+ json._links.channel +'>freecodecamp</a>');
-        //$("#foxLinkTwo").html(JSON.stringify(json._links.channel));
     } else {
-        $("#foxStatusTwo").html(JSON.stringify(json.stream.channel.status));
-        $("#foxNameTwo").html("freecodecamp");
-        $("#foxIconTwo").html(JSON.stringify(json.stream.channel.logo));
-        $("#foxLinkTwo").html(JSON.stringify(json._links.channel));
+        $(".foxStatusTwo").html(JSON.stringify(json.stream.channel.status));
+        $(".foxNameTwo").html('<a href='+ json._links.channel +'>freecodecamp</a>');
     }
 });
 
@@ -46,14 +34,12 @@ $.getJSON(streamsHtmlHead + "comster404"+"?callback=?", function (json) {
         $(".foxNameThree").html("comster404");
     }
     if (json.stream === null) {
-        $("#foxStatusThree").html("OFFLINE");
-        $("#foxNameThree").html("comster404");
-        $("#foxLinkThree").html(JSON.stringify(json._links.channel));
+        $(".foxStatusThree").html("OFFLINE");
+        $(".foxNameThree").html('<a href='+ json._links.channel +'>comster404</a>');
     } else {
-        //$("#foxStatusThree").html(JSON.stringify(json.stream.channel.status));
-        $("#foxNameThree").html("comster404");
-        //$("#foxIconThree").html(JSON.stringify(json.stream.channel.logo));
-        //$("#foxLinkThree").html(JSON.stringify(json._links.channel));
+        //$("#foxNameThree").html("comster404");
+        $(".foxStatusThree").html(JSON.stringify(json.stream.channel.status));
+        $(".foxNameThree").html('<a href='+ json._links.channel +'>comster404</a>');
     }
 });
 
