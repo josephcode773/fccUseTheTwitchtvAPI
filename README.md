@@ -2,5 +2,5 @@
 
 - www.freecodecamp.com
 
-- Completed Project:  Pending...
+- Completed Project:  https://josephcode773.github.io/fccUseTheTwitchtvAPI/  and  http://codepen.io/josephcode773/pen/Royomm
 
