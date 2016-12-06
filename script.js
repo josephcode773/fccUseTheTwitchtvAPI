@@ -1,56 +1,119 @@
-// var twitchStreamers = ["OgamingSC2", "freecodecamp", "comster404"];
-// var streamName = twitchStreamers[0];
-// var ericHolder = "";
-var streamsHtmlHead = "https://cors-anywhere.herokuapp.com/https://wind-bow.hyperdev.space/twitch-api/streams/";
-$.getJSON(streamsHtmlHead + "OgamingSC2", function (json) {
+var streamsHtmlHead = "https://wind-bow.gomix.me/twitch-api/streams/";
+var channelsHtmlHead = "https://wind-bow.gomix.me/twitch-api/channels/";
+var usersHtmlHead = "https://wind-bow.gomix.me/twitch-api/users/";
+
+// $.getJSON(streamsHtmlHead + "OgamingSC2/?callback=?", function (json) {
+
+$.getJSON(streamsHtmlHead + "OgamingSC2" + "?callback=?", function (json) {
     if (json.status === 404) {
-        // console.log(json.message)
         $("#foxStatusOne").html(JSON.stringify(json.message));
+        $("#foxNameOne").html("OgamingSC2");
     }
     if (json.stream === null) {
-        // console.log("Offline")
         $("#foxStatusOne").html("OFFLINE");
+        $("#foxNameOne").html("OgamingSC2");
+        $("#foxLinkOne").html(JSON.stringify(json._links.channel));
     } else {
-        // console.log(ericHolder.channel.status)
         $("#foxStatusOne").html(JSON.stringify(json.stream.channel.status));
+        $("#foxNameOne").html("OgamingSC2");
+        $("#foxIconOne").html(JSON.stringify(json.stream.channel.logo));
+        $("#foxLinkOne").html(JSON.stringify(json._links.channel));
     }
-    $("#foxNameOne").html("OgamingSC2");
-    $("#foxIconOne").html(JSON.stringify(json.stream.channel.logo));
-    $("#foxLinkOne").html(JSON.stringify(json._links.channel));
+
 });
 
-
-$.getJSON(streamsHtmlHead + "freecodecamp", function (json2) {
-    if (json2.status === 404) {
-        // console.log(json2.message)
-        $("#foxStatusTwo").html(JSON.stringify(json2.message));
+$.getJSON(streamsHtmlHead + "freecodecamp"+"?callback=?", function (json) {
+    if (json.status === 404) {
+        $("#foxStatusTwo").html(JSON.stringify(json.message));
+        $("#foxNameTwo").html("freecodecamp");
     }
-    if (json2.stream === null) {
-        // console.log("Offline")
+    if (json.stream === null) {
         $("#foxStatusTwo").html("OFFLINE");
+        $("#foxNameTwo").html("freecodecamp");
+        $("#foxLinkTwo").html(JSON.stringify(json._links.channel));
     } else {
-        // console.log(ericHolder.channel.status)
-        $("#foxStatusTwo").html(JSON.stringify(json2.stream.channel.status));
+        $("#foxStatusTwo").html(JSON.stringify(json.stream.channel.status));
+        $("#foxNameTwo").html("freecodecamp");
+        $("#foxIconTwo").html(JSON.stringify(json.stream.channel.logo));
+        $("#foxLinkTwo").html(JSON.stringify(json._links.channel));
     }
-    $("#foxNameTwo").html("freecodecamp");
-    $("#foxIconTwo").html(JSON.stringify(json2.stream.channel.logo));
-    $("#foxLinkTwo").html(JSON.stringify(json2._links.channel));
 });
 
-
-$.getJSON(streamsHtmlHead + "comster404", function (json3) {
-    if (json3.status === 404) {
-        // console.log(json3.message)
-        $("#foxStatusThree").html(JSON.stringify(json3.message));
+$.getJSON(streamsHtmlHead + "comster404"+"?callback=?", function (json) {
+    if (json.status === 404) {
+        $("#foxStatusThree").html(JSON.stringify(json.message));
+        $("#foxNameThree").html("comster404");
     }
-    if (json3.stream === null) {
-        // console.log("Offline")
+    if (json.stream === null) {
         $("#foxStatusThree").html("OFFLINE");
+        $("#foxNameThree").html("comster404");
+        $("#foxLinkThree").html(JSON.stringify(json._links.channel));
     } else {
-        // console.log(ericHolder.channel.status)
-        $("#foxStatusThree").html(JSON.stringify(json3.stream.channel.status));
+        //$("#foxStatusThree").html(JSON.stringify(json.stream.channel.status));
+        $("#foxNameThree").html("comster404");
+        //$("#foxIconThree").html(JSON.stringify(json.stream.channel.logo));
+        //$("#foxLinkThree").html(JSON.stringify(json._links.channel));
     }
-    $("#foxNameThree").text("comster404");
-    $("#foxIconThree").html(JSON.stringify(json3.stream.channel.logo));
-    $("#foxLinkThree").html(JSON.stringify(json3._links.channel));
 });
+
+
+// - Bootstrap Theme Stuff -
+
+/**
+ *   I don't recommend using this plugin on large tables, I just wrote it to make the demo useable. It will work fine for smaller tables
+ *   but will likely encounter performance issues on larger tables.
+ *
+ *		<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+ *		$(input-element).filterTable()
+ *
+ *	The important attributes are 'data-action="filter"' and 'data-filters="#table-selector"'
+ */
+// (function(){
+//     'use strict';
+//     var $ = jQuery;
+//     $.fn.extend({
+//         filterTable: function(){
+//             return this.each(function(){
+//                 $(this).on('keyup', function(e){
+//                     $('.filterTable_no_results').remove();
+//                     var $this = $(this),
+//                         search = $this.val().toLowerCase(),
+//                         target = $this.attr('data-filters'),
+//                         $target = $(target),
+//                         $rows = $target.find('tbody tr');
+//
+//                     if(search == '') {
+//                         $rows.show();
+//                     } else {
+//                         $rows.each(function(){
+//                             var $this = $(this);
+//                             $this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+//                         })
+//                         if($target.find('tbody tr:visible').size() === 0) {
+//                             var col_count = $target.find('tr').first().find('td').size();
+//                             var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No results found</td></tr>')
+//                             $target.find('tbody').append(no_results);
+//                         }
+//                     }
+//                 });
+//             });
+//         }
+//     });
+//     $('[data-action="filter"]').filterTable();
+// })(jQuery);
+
+// $(function(){
+//     // attach table filter plugin to inputs
+//     $('[data-action="filter"]').filterTable();
+//
+//     $('.container').on('click', '.panel-heading span.filter', function(e){
+//         var $this = $(this),
+//             $panel = $this.parents('.panel');
+//
+//         $panel.find('.panel-body').slideToggle();
+//         if($this.css('display') != 'none') {
+//             $panel.find('.panel-body input').focus();
+//         }
+//     });
+//     $('[data-toggle="tooltip"]').tooltip();
+// });
