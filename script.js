@@ -29,9 +29,9 @@ $.getJSON(streamsHtmlHead + "freecodecamp"+"?callback=?", function (json) {
         $("#foxNameTwo").html("freecodecamp");
     }
     if (json.stream === null) {
-        $("#foxStatusTwo").html("OFFLINE");
-        $("#foxNameTwo").html("freecodecamp");
-        $("#foxLinkTwo").html(JSON.stringify(json._links.channel));
+        $(".foxStatusTwo").html("OFFLINE");
+        $(".foxNameTwo").html('<a href='+ json._links.channel +'>freecodecamp</a>');
+        //$("#foxLinkTwo").html(JSON.stringify(json._links.channel));
     } else {
         $("#foxStatusTwo").html(JSON.stringify(json.stream.channel.status));
         $("#foxNameTwo").html("freecodecamp");
@@ -42,8 +42,8 @@ $.getJSON(streamsHtmlHead + "freecodecamp"+"?callback=?", function (json) {
 
 $.getJSON(streamsHtmlHead + "comster404"+"?callback=?", function (json) {
     if (json.status === 404) {
-        $("#foxStatusThree").html(JSON.stringify(json.message));
-        $("#foxNameThree").html("comster404");
+        $(".foxStatusThree").html(JSON.stringify(json.message));
+        $(".foxNameThree").html("comster404");
     }
     if (json.stream === null) {
         $("#foxStatusThree").html("OFFLINE");
